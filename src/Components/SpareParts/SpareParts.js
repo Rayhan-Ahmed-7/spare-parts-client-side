@@ -27,7 +27,7 @@ const SpareParts = () => {
                     </h2>
                 </div>
                 <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 my-10 gap-10 place-content-center'>
-                    {carSpareParts.slice(0,6)?.map(sparePart=><SparePart key={sparePart._id} sparePart={sparePart}></SparePart>)}
+                    {carSpareParts?.slice(0,6)?.map(sparePart=><SparePart key={sparePart._id} sparePart={sparePart}></SparePart>)}
                 </div>
             </div>
         </div>

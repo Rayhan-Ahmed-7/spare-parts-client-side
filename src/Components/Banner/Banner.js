@@ -1,12 +1,9 @@
 import React from 'react';
-import Header from '../Header/Header';
 import { MdArrowForwardIos } from 'react-icons/md';
-//import bgImg from '../../images/banner.png';
 
 const Banner = () => {
     return (
-        <div className="min-h-screen bg-banner-image bg-cover">
-            <Header opacity={'bg-opacity-40'}></Header>
+        <div className="min-h-[90vh] bg-banner-image bg-cover">
             <div className='lg:w-10/12 w-11/12 mx-auto flex min-h-[80vh] items-center'>
                 <div className='text-white flex-1'>
                     <small className='md:tracking-[1rem] tracking-[.5rem]'>SPARE PARTS</small>

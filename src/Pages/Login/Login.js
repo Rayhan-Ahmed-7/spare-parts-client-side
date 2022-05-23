@@ -5,8 +5,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { GrGooglePlus } from 'react-icons/gr';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import axios from 'axios';
-import Header from '../../Components/Header/Header';
+import useToken from '../../Hooks/useToken';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -23,21 +22,18 @@ const Login = () => {
     const handleLogin = async(data) => {
         const email = data.email;
         const password = data.password;
-        await signInWithEmailAndPassword(email,password)
-        const res = await axios.put('http://localhost:5000/user', { email });
-        //console.log(res);
-        localStorage.setItem('accessToken', res?.data?.token);
+        await signInWithEmailAndPassword(email,password);
     }
+    const [token] = useToken(user || gUser);
     useEffect(()=>{
-        if(user || gUser){
+        if(token){
             navigate(from,{replace:true});
         }
-    },[user,gUser,navigate,from]);
+    },[token,navigate,from]);
     return (
         <>
-        <Header></Header>
         <div className='grid place-items-center'>
-            <div className='md:w-4/12 w-11/12 rounded-xl mt-10 bg-secondary text-gray-200 lg:p-10 px-3 py-6 shadow-cShadow'>
+            <div className='md:w-4/12 w-11/12 rounded-xl mt-10 bg-[#110e25] text-gray-200 lg:p-10 px-3 py-6 shadow-cShadow'>
                 <div className='mb-10'>
                     <h2 className='text-3xl text-center font-bold mr-3 uppercase'>Login</h2>
                 </div>
@@ -83,7 +79,7 @@ const Login = () => {
                         </button>
                     </div>
                 </form>
-                <Link to='/password-reset' className='ml-3 text-lg text-right block mt-4 cursor-pointer hover:underline text-primary'>Forget password?</Link>
+                <Link to='/password-reset' className='ml-3 text-lg text-right block mt-4 cursor-pointer hover:underline text-white'>Forget password?</Link>
                 <div className='flex items-center justify-center my-3'>
                     <div className='w-28 h-1 rounded-sm bg-white'></div>
                     <div className='mx-4 text-white'>OR</div>

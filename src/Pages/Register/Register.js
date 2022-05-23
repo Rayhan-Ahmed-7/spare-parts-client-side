@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { BsArrowRight } from 'react-icons/bs';
 import { GrGooglePlus } from 'react-icons/gr';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import axios from 'axios';
-import Header from '../../Components/Header/Header';
+import useToken from '../../Hooks/useToken';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -21,22 +20,22 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [token] = useToken(user || gUser);
     const handleLogin = async (data) => {
         const email = data.email;
         const password = data.password;
         await createUserWithEmailAndPassword(email, password)
         await updateProfile({displayName:'',photoURL:'https://i.ibb.co/hBQFgbc/git.jpg'})
-        const res = await axios.put('http://localhost:5000/user', { email });
-        localStorage.setItem('accessToken', res?.data.accessToken);
     }
-    if (user) {
-        navigate(from, { replace: true });
-    }
+    useEffect(()=>{
+        if(token){
+            navigate(from,{replace:true});
+        }
+    },[token,navigate,from]);
     return (
         <>
-            <Header></Header>
             <div className='grid place-items-center'>
-                <div className='md:w-4/12 w-11/12 rounded-xl mt-10 bg-secondary text-gray-200 lg:p-10 px-3 py-6 shadow-cShadow'>
+                <div className='md:w-4/12 w-11/12 rounded-xl mt-10 bg-[#110e25] text-gray-200 lg:p-10 px-3 py-6 shadow-cShadow'>
                     <div className='mb-10'>
                         <h2 className='text-3xl text-center font-bold mr-3 uppercase'>Register</h2>
                     </div>
