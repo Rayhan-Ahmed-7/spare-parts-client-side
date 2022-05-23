@@ -6,7 +6,7 @@ import { MdArrowForwardIos } from 'react-icons/md';
 const Banner = () => {
     return (
         <div className="min-h-screen bg-banner-image bg-cover">
-            <Header></Header>
+            <Header opacity={'bg-opacity-40'}></Header>
             <div className='lg:w-10/12 w-11/12 mx-auto flex min-h-[80vh] items-center'>
                 <div className='text-white flex-1'>
                     <small className='md:tracking-[1rem] tracking-[.5rem]'>SPARE PARTS</small>
