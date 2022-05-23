@@ -11,7 +11,7 @@ const Header = ({opacity}) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [profileOpen, setProfileOpen] = useState(false);
     const [user] = useAuthState(auth);
-    //FFCB00 = yellow
+    
     const logOut = ()=>{
         signOut(auth);
     }
@@ -43,7 +43,7 @@ const Header = ({opacity}) => {
                     </li>
                     <li>
                         <NavLink
-                            to='/car-parts'
+                            to='/'
                             className={({ isActive }) => (isActive ? 'nav-item' : ''
                             )}
                         >

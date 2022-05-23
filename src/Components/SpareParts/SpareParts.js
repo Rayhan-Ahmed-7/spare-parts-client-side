@@ -2,26 +2,32 @@ import React from 'react';
 import { MdArrowForwardIos } from 'react-icons/md';
 import { useQuery } from 'react-query';
 import SparePart from './SparePart';
+import Loading from '../Shared/Loading/Loading';
 
 const SpareParts = () => {
-    const {data:spareParts,isLoading} = useQuery('car-spare-parts',fetch('http://localhost:5000/car-parts',{
+    const {data:carSpareParts,isLoading} = useQuery('carSpareParts',()=>fetch('http://localhost:5000/car-parts',{
         method:"GET",
         headers:{
             'content-type':'application/json',
-            authorization:`bearer ${localStorage.getItem('accessToken')}`
+            "authorization":`bearer ${localStorage.getItem('accessToken')}`
         },
     })
     .then(res=>res.json())
     )
+    if(isLoading){
+        return <Loading></Loading>
+    }
     return (
-        <div>
-            <div>
+        <div className='bg-secondary text-white'>
+            <div className='w-10/12 mx-auto py-10'>
                 <div>
-                    <h2>Car Spare Parts</h2>
-                    <MdArrowForwardIos className='p-2 bg-primary'/>
+                    <h2 className='uppercase font-bold text-2xl flex items-center'>
+                        Car Spare Parts 
+                        <MdArrowForwardIos className='bg-primary ml-3 text-4xl p-2 text-white'/>
+                    </h2>
                 </div>
-                <div>
-                    {spareParts?.map(sparePart=><SparePart sparePart={sparePart}></SparePart>)}
+                <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 my-10 gap-10 place-content-center'>
+                    {carSpareParts.slice(0,6)?.map(sparePart=><SparePart key={sparePart._id} sparePart={sparePart}></SparePart>)}
                 </div>
             </div>
         </div>
