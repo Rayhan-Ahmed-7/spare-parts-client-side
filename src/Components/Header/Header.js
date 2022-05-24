@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import logo from '../../images/logo.png';
 import { HiMenuAlt1 } from 'react-icons/hi';
 import { CgClose } from 'react-icons/cg';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import './Header.css';
 import { signOut } from 'firebase/auth';
+import toast from 'react-hot-toast';
 const Header = ({opacity}) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [profileOpen, setProfileOpen] = useState(false);
@@ -14,13 +15,14 @@ const Header = ({opacity}) => {
     
     const logOut = ()=>{
         signOut(auth);
+        toast.success('logedOut successfully.');
     }
     return (
         <header className={`bg-[#110e25] h-20 flex items-center ${opacity} backdrop-blur-md sticky top-0 z-50`}>
             <div className='w-11/12 mx-auto flex items-center justify-between relative'>
-                <div className="logo">
+                <Link to='/'>
                     <img className='lg:h-auto h-8' src={logo} alt="logo" />
-                </div>
+                </Link>
                 <div className='lg:hidden block'>
                     <button onClick={() => { setMenuOpen(!menuOpen) }}>
                         {
@@ -63,10 +65,12 @@ const Header = ({opacity}) => {
                         user ?
                             <li className='relative'>
                                 <img onClick={() => setProfileOpen(!profileOpen)} src={user.photoURL} className='h-10 w-10 rounded-full cursor-pointer' alt="profile" />
-                                <div className={`${profileOpen ? 'opacity-100' : 'opacity-0'} absolute top-12 right-0 bg-[#110e25] bg-opacity-90 backdrop-blur-sm p-4 w-44 rounded-md space-y-4 z-50 shadow-cShadow`}>
+                                {
+                                    profileOpen && <div className={`opacity-100 absolute top-12 right-0 bg-[#110e25] bg-opacity-90 backdrop-blur-sm p-4 w-44 rounded-md space-y-4 z-50 shadow-cShadow`}>
                                     <h2 className='text-sm'>{user?.displayName}</h2>
                                     <button onClick={()=>logOut()} className='bg-primary px-2 py-1 rounded-md text-sm'>Log Out</button>
                                 </div>
+                                }
                             </li>
                             :
                             <li>

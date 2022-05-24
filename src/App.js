@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './Components/Header/Header';
@@ -28,6 +29,7 @@ function App() {
         }>
         </Route>
       </Routes>
+      <Toaster></Toaster>
     </div>
   );
 }

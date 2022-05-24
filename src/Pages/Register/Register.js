@@ -40,7 +40,16 @@ const Register = () => {
                         <h2 className='text-3xl text-center font-bold mr-3 uppercase'>Register</h2>
                     </div>
                     <form className='w-full' onSubmit={handleSubmit(handleRegister)}>
-                        <input {...register("name", { required: "name is required.!" })}
+                        <input {...register("name",{
+                            required: {
+                                value:true,
+                                message:'Name is required'
+                            },
+                            minLength: {
+                                value:6,
+                                message:"Name Must be 6 characters or longer"
+                            }
+                        })}
                             className="w-full rounded-md bg-slate-200 text-slate-700 focus:outline-none mb-4 p-3"
                             type="text"
                             placeholder='name'
@@ -50,7 +59,16 @@ const Register = () => {
                                 {errors.name?.message}
                             </p>
                         )}
-                        <input {...register("email", { required: "email is required.!" })}
+                        <input {...register("email", {
+                            required: {
+                                value:true,
+                                message:'Email is required'
+                            },
+                            pattern: {
+                                value:/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                message:"Provide a valid Email"
+                            }
+                        })}
                             className="w-full rounded-md bg-slate-200 text-slate-700 focus:outline-none mb-4 p-3"
                             type="email"
                             placeholder='email'
@@ -60,7 +78,16 @@ const Register = () => {
                                 {errors.email?.message}
                             </p>
                         )}
-                        <input {...register("password", { required: "password is required.!" })}
+                        <input {...register("password", {
+                            required: {
+                                value:true,
+                                message:'Password is required'
+                            },
+                            minLength: {
+                                value:6,
+                                message:"Password Must be 6 characters or longer"
+                            }
+                        })}
                             className="w-full rounded-md bg-slate-200 text-slate-700 focus:outline-none mb-4 p-3"
                             type="password"
                             placeholder='password'
