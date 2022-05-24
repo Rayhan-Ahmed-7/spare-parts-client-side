@@ -9,7 +9,7 @@ SwiperCore.use([Pagination, Autoplay]);
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:5000/reviews`, {
+        axios.get(`https://boiling-badlands-34692.herokuapp.com/reviews`, {
             headers: {
                 'content-type': 'application/json',
                 "authorization": `bearer ${localStorage.getItem('accessToken')}`

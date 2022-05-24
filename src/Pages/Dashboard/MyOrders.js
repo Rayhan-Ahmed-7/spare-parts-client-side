@@ -8,7 +8,7 @@ const MyOrders = () => {
     const [user] = useAuthState(auth);
     useEffect(()=>{
         if(user){
-            axios.get(`http://localhost:5000/orders/${user?.email}`,{
+            axios.get(`https://boiling-badlands-34692.herokuapp.com/orders/${user?.email}`,{
                 headers: {
                     'content-type': 'application/json',
                     "authorization": `bearer ${localStorage.getItem('accessToken')}`

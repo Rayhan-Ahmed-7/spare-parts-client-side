@@ -41,7 +41,7 @@ const OrderForm = ({carPart}) => {
             status:'pending'
         }
         if(!error){
-            axios.post('http://localhost:5000/order',order)
+            axios.post('https://boiling-badlands-34692.herokuapp.com/order',order)
             .then(res=>{
                 if(res?.data?.acknowledged){
                     swal("Good job!", "You sucessfully placed a order!", "success")
