@@ -1,4 +1,6 @@
 import React from 'react';
+import { FaUsers, FaGlobeAsia, FaComments } from 'react-icons/fa';
+import { GrCompliance } from 'react-icons/gr';
 
 const BusinessSumary = () => {
     return (

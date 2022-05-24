@@ -1,7 +1,9 @@
 import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
+import NotFound from './Components/NotFound/NotFound';
 import AddReview from './Pages/Dashboard/AddReview';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders';
@@ -38,7 +40,9 @@ function App() {
           <Route index path='myOrders' element={<MyOrders/>}></Route>
           <Route index path='addReview' element={<AddReview/>}></Route>
         </Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
       <Toaster></Toaster>
     </div>
   );

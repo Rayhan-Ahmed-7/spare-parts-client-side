@@ -33,9 +33,9 @@ const Purchase = () => {
         return <Loading></Loading>
     }
     return (
-        <div>
+        <div className='min-h-screen'>
             <div className='lg:w-10/12 w-11/12 mx-auto flex lg:flex-row flex-col items-center my-10'>
-                <div className='flex lg:flex-row flex-col items-center'>
+                <div className='flex lg:flex-row flex-col items-center '>
                     <img className='w-full' src={img} alt="img" />
                     <div>
                         <h2 className='text-3xl uppercase font-bold'>{name}</h2>
