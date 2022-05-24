@@ -43,15 +43,6 @@ const Header = ({opacity}) => {
                     </li>
                     <li>
                         <NavLink
-                            to='/'
-                            className={({ isActive }) => (isActive ? 'nav-item' : ''
-                            )}
-                        >
-                            Car Parts
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
                             to='/review'
                             className={({ isActive }) => (isActive ? 'nav-item':''
                             )}
@@ -73,7 +64,7 @@ const Header = ({opacity}) => {
                             <li className='relative'>
                                 <img onClick={() => setProfileOpen(!profileOpen)} src={user.photoURL} className='h-10 w-10 rounded-full cursor-pointer' alt="profile" />
                                 <div className={`${profileOpen ? 'opacity-100' : 'opacity-0'} absolute top-12 right-0 bg-[#110e25] bg-opacity-90 backdrop-blur-sm p-4 w-44 rounded-md space-y-4 z-50 shadow-cShadow`}>
-                                    <h2 className='text-sm'>Rayhan Ahmed</h2>
+                                    <h2 className='text-sm'>{user?.displayName}</h2>
                                     <button onClick={()=>logOut()} className='bg-primary px-2 py-1 rounded-md text-sm'>Log Out</button>
                                 </div>
                             </li>

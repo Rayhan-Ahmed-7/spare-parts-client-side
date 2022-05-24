@@ -19,7 +19,7 @@ const SpareParts = () => {
     }
     return (
         <div className='bg-secondary text-white'>
-            <div className='w-10/12 mx-auto py-10'>
+            <div id='car-parts' className='w-10/12 mx-auto py-10'>
                 <div>
                     <h2 className='uppercase font-bold text-2xl flex items-center'>
                         Car Spare Parts 

@@ -21,11 +21,11 @@ const Register = () => {
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const [token] = useToken(user || gUser);
-    const handleLogin = async (data) => {
+    const handleRegister = async (data) => {
         const email = data.email;
         const password = data.password;
         await createUserWithEmailAndPassword(email, password)
-        await updateProfile({displayName:'',photoURL:'https://i.ibb.co/hBQFgbc/git.jpg'})
+        await updateProfile({displayName:data?.name,photoURL:'https://i.ibb.co/hBQFgbc/git.jpg'})
     }
     useEffect(()=>{
         if(token){
@@ -39,7 +39,7 @@ const Register = () => {
                     <div className='mb-10'>
                         <h2 className='text-3xl text-center font-bold mr-3 uppercase'>Register</h2>
                     </div>
-                    <form className='w-full' onSubmit={handleSubmit(handleLogin)}>
+                    <form className='w-full' onSubmit={handleSubmit(handleRegister)}>
                         <input {...register("name", { required: "name is required.!" })}
                             className="w-full rounded-md bg-slate-200 text-slate-700 focus:outline-none mb-4 p-3"
                             type="text"
