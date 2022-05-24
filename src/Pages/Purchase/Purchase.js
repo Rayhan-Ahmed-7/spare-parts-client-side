@@ -11,7 +11,7 @@ const Purchase = () => {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`http://localhost:5000/car-parts/${id}`, {
+        axios.get(`https://boiling-badlands-34692.herokuapp.com/car-parts/${id}`, {
             headers: {
                 'content-type': 'application/json',
                 "authorization": `bearer ${localStorage.getItem('accessToken')}`

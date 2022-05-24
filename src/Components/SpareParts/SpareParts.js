@@ -5,7 +5,7 @@ import SparePart from './SparePart';
 import Loading from '../Shared/Loading/Loading';
 
 const SpareParts = () => {
-    const {data:carSpareParts,isLoading} = useQuery('carSpareParts',()=>fetch('http://localhost:5000/car-parts',{
+    const {data:carSpareParts,isLoading} = useQuery('carSpareParts',()=>fetch('https://boiling-badlands-34692.herokuapp.com/car-parts',{
         method:"GET",
         headers:{
             'content-type':'application/json',

@@ -7,7 +7,7 @@ const useToken = (user) => {
     useEffect(() => {
         const getToken = async () => {
             if (user) {
-                const res = await axios.put('http://localhost:5000/user', { email });
+                const res = await axios.put('https://boiling-badlands-34692.herokuapp.com/user', { email });
                 localStorage.setItem('accessToken', res?.data?.token);
                 setToken(res?.data?.token);
             }
