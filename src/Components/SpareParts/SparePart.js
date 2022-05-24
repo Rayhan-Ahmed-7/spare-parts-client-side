@@ -15,7 +15,7 @@ const SparePart = ({sparePart}) => {
                     <p>Available: <span className='text-yellow-400'>{availableQuantity}</span></p>
                     <p>Minimum Order: <span className='text-yellow-400'>{minimumOrder}</span></p>
                 </div>
-                <p className='text-sm font-light my-3'>{description.slice(0,150)}  ...SeeMore</p>
+                <p className='text-sm font-light my-3'>{description?.slice(0,150)}  ...SeeMore</p>
                 <button onClick={()=>navigate(`/purchase/${_id}`)} className='bg-primary button px-4 py-2 flex items-center rounded-sm'>Purchase Now <MdArrowForwardIos className='icon ml-2 transition-all'/></button>
             </div>
         </div>

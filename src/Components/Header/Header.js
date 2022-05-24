@@ -8,20 +8,19 @@ import auth from '../../firebase.init';
 import './Header.css';
 import { signOut } from 'firebase/auth';
 import toast from 'react-hot-toast';
-const Header = ({opacity}) => {
+const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [profileOpen, setProfileOpen] = useState(false);
     const [user] = useAuthState(auth);
-    
-    const logOut = ()=>{
+    const logOut = () => {
         signOut(auth);
         toast.success('logedOut successfully.');
     }
     return (
-        <header className={`bg-[#110e25] h-20 flex items-center ${opacity} backdrop-blur-md sticky top-0 z-50`}>
+        <header className={`bg-[#110e25] h-20 flex items-center backdrop-blur-md sticky top-0 z-50`}>
             <div className='w-11/12 mx-auto flex items-center justify-between relative'>
                 <Link to='/'>
-                    <img className='lg:h-auto h-8' src={logo} alt="logo" />
+                    <img className='lg:h-auto h-10' src={logo} alt="logo" />
                 </Link>
                 <div className='lg:hidden block'>
                     <button onClick={() => { setMenuOpen(!menuOpen) }}>
@@ -45,31 +44,31 @@ const Header = ({opacity}) => {
                     </li>
                     <li>
                         <NavLink
-                            to='/review'
-                            className={({ isActive }) => (isActive ? 'nav-item':''
+                            to='/myPortfolio'
+                            className={({ isActive }) => (isActive ? 'nav-item' : ''
                             )}
                         >
-                            Review
+                            My Portfolio
                         </NavLink>
                     </li>
-                    <li>
+                    {user && <li>
                         <NavLink
                             to='/dashboard'
-                            className={({ isActive }) => (isActive ? 'nav-item':''
+                            className={({ isActive }) => (isActive ? 'nav-item' : ''
                             )}
                         >
                             Dashboard
                         </NavLink>
-                    </li>
+                    </li>}
                     {
                         user ?
                             <li className='relative'>
                                 <img onClick={() => setProfileOpen(!profileOpen)} src={user.photoURL} className='h-10 w-10 rounded-full cursor-pointer' alt="profile" />
                                 {
                                     profileOpen && <div className={`opacity-100 absolute top-12 right-0 bg-[#110e25] bg-opacity-90 backdrop-blur-sm p-4 w-44 rounded-md space-y-4 z-50 shadow-cShadow`}>
-                                    <h2 className='text-sm'>{user?.displayName}</h2>
-                                    <button onClick={()=>logOut()} className='bg-primary px-2 py-1 rounded-md text-sm'>Log Out</button>
-                                </div>
+                                        <h2 className='text-sm'>{user?.displayName}</h2>
+                                        <button onClick={() => logOut()} className='bg-primary px-2 py-1 rounded-md text-sm'>Log Out</button>
+                                    </div>
                                 }
                             </li>
                             :
