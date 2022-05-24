@@ -15,6 +15,10 @@ import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 import Purchase from './Pages/Purchase/Purchase';
 import Register from './Pages/Register/Register';
 
+const data = [
+  {name:'Rayhan Ahmed',description:"I'am very satisfied with their service. The product quality is very good and price is really cheap and last i will suggest any one to buy products from them.",ratings:5,location:'bangladesh'},
+]
+
 function App() {
   return (
     <div className="App">
