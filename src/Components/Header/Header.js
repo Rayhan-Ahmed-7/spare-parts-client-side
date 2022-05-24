@@ -51,6 +51,15 @@ const Header = () => {
                             My Portfolio
                         </NavLink>
                     </li>
+                    <li>
+                        <NavLink
+                            to='/blogs'
+                            className={({ isActive }) => (isActive ? 'nav-item' : ''
+                            )}
+                        >
+                            Blogs
+                        </NavLink>
+                    </li>
                     {user && <li>
                         <NavLink
                             to='/dashboard'

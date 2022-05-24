@@ -35,7 +35,7 @@ const Register = () => {
     return (
         <>
             <div className='grid place-items-center'>
-                <div className='md:w-4/12 w-11/12 rounded-xl mt-10 bg-[#110e25] text-gray-200 lg:p-10 px-3 py-6 shadow-cShadow'>
+                <div className='md:w-4/12 w-11/12 rounded-xl my-10 bg-[#110e25] text-gray-200 lg:p-10 px-3 py-6 shadow-cShadow'>
                     <div className='mb-10'>
                         <h2 className='text-3xl text-center font-bold mr-3 uppercase'>Register</h2>
                     </div>

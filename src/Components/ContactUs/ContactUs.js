@@ -9,7 +9,7 @@ const ContactUs = () => {
                 <p className='uppercase text-lg my-5'>If you have any kind of question about us or about our product please let us know via email.!</p>
                 </div>
                 <div className=''>
-                    <form>
+                    <form onSubmit={(e)=>e.preventDefault()}>
                         <div className='flex lg:flex-row flex-col gap-5 py-4'>
                         <div className='flex-1'>
                         <label className='text-gray-200' htmlFor="name">Name</label>

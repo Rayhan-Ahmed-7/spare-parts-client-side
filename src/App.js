@@ -4,20 +4,19 @@ import './App.css';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import NotFound from './Components/NotFound/NotFound';
+import Blogs from './Pages/Blogs/Blogs';
 import AddReview from './Pages/Dashboard/AddReview';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
+import Payment from './Pages/Dashboard/Payment';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
+import PasswordReset from './Pages/Login/PasswordReset';
 import RequireAuth from './Pages/Login/RequireAuth';
 import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 import Purchase from './Pages/Purchase/Purchase';
 import Register from './Pages/Register/Register';
-
-const data = [
-  {name:'Rayhan Ahmed',description:"I'am very satisfied with their service. The product quality is very good and price is really cheap and last i will suggest any one to buy products from them.",ratings:5,location:'bangladesh'},
-]
 
 function App() {
   return (
@@ -26,6 +25,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/myPortfolio' element={<MyPortfolio/>}></Route>
+        <Route path='/blogs' element={<Blogs/>}></Route>
         <Route path='/purchase/:id' element={
           <RequireAuth>
             <Purchase />
@@ -34,6 +34,7 @@ function App() {
         </Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
+        <Route path='/password-reset' element={<PasswordReset />}></Route>
         <Route path='/dashboard' element={
           <RequireAuth>
             <Dashboard>
@@ -42,6 +43,7 @@ function App() {
         }>
           <Route index element={<MyProfile/>}></Route>
           <Route index path='myOrders' element={<MyOrders/>}></Route>
+          <Route index path='payment/:id' element={<Payment/>}></Route>
           <Route index path='addReview' element={<AddReview/>}></Route>
         </Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>

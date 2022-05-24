@@ -32,7 +32,7 @@ const BusinessSumary = () => {
                         <p>Buyers Review</p>
                     </div>
                 </div>
-                <div className='p-6 mt-8 bg-gray-100 rounded-md shadow-xl flex items-center'>
+                <div className='p-6 mt-8 bg-gray-100 rounded-md shadow-xl flex lg:flex-row flex-col items-center'>
                     <h2 className='text-secondary uppercase lg:text-3xl text-xl font-bold flex-1'>Do you have any question about us.? please contact us.!</h2>
                     <div>
                         <button className='bg-primary text-white px-2 py-2 rounded-sm flex-1'>Contact Us</button>
