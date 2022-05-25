@@ -8,7 +8,7 @@ import CheckoutForm from './CheckoutForm';
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 const Payment = () => {
     const { id } = useParams();
-    const { data: order, isLoading } = useQuery("order", () => fetch(`http://localhost:5000/order/${id}`, {
+    const { data: order, isLoading } = useQuery("order", () => fetch(`https://boiling-badlands-34692.herokuapp.com/order/${id}`, {
         method: "GET",
         headers: {
             "authorization": `Bearer ${localStorage.getItem("accessToken")}`

@@ -31,7 +31,7 @@ const MyOrders = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    axios.delete(`http://localhost:5000/orders/${id}`, {
+                    axios.delete(`https://boiling-badlands-34692.herokuapp.com/orders/${id}`, {
                         headers: {
                             'content-type': 'application/json',
                             "authorization": `bearer ${localStorage.getItem('accessToken')}`
