@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import Loading from '../../../Components/Shared/Loading/Loading';
 
 const ManageUsers = () => {
-    const { data: users, isLoading, refetch } = useQuery("allUsers", () => fetch(`http://localhost:5000/users`, {
+    const { data: users, isLoading, refetch } = useQuery("allUsers", () => fetch(`https://boiling-badlands-34692.herokuapp.com/users`, {
         headers: {
             'content-type': 'application/json',
             "authorization": `bearer ${localStorage.getItem('accessToken')}`
@@ -25,7 +25,7 @@ const ManageUsers = () => {
         })
         .then((update) => {
             if (update) {
-                fetch(`http://localhost:5000/admin/${email}`,{
+                fetch(`https://boiling-badlands-34692.herokuapp.com/admin/${email}`,{
                     method:"PUT",
                     headers: {
                         'content-type': 'application/json',
