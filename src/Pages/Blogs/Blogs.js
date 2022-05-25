@@ -3,7 +3,7 @@ import React from 'react';
 const Blogs = () => {
     return (
         <div className='bg-white'>
-        <div className='w-10/12 mx-auto mt-6 grid lg:grid-cols-2 grid-cols-1 gap-8 mb-8'>
+        <div className='w-10/12 mx-auto py-8 grid lg:grid-cols-2 grid-cols-1 gap-8'>
             <div className='md:mt-0 mt-4'>
                 <h2 className='text-2xl font-bold text-gray-800'>How will you improve the performance of a React Application?</h2>
                 <p className='text-justify text-gray-800 mt-3'>

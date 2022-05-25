@@ -2,7 +2,7 @@ import React from 'react';
 
 const MyPortfolio = () => {
     return (
-        <div className='min-h-screen bg-white flex justify-center my-6'>
+        <div className='min-h-screen bg-white flex justify-center py-6'>
             <div className='w-10/12 mx-auto'>
             <h2 className='text-3xl uppercase font-bold text-center'>wllcome to my portfolio.!</h2>
             <div className='text-center'>
@@ -15,7 +15,7 @@ const MyPortfolio = () => {
                 </div>
                 <div className='my-6'>
                     <h2 className='text-2xl my-4'>List of Technology</h2>
-                    <div className='flex flex-wrap gap-4'>
+                    <div className='flex justify-center flex-wrap space-x-6 space-y-6'>
                         <div className='p-4 rounded-lg bg-white shadow-lg'>HTML</div>
                         <div className='p-4 rounded-lg bg-white shadow-lg'>CSS</div>
                         <div className='p-4 rounded-lg bg-white shadow-lg'>JS</div>
