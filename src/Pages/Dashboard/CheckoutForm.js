@@ -47,7 +47,9 @@ const CheckoutForm = ({order}) => {
             card,
         });
         setCardError(error?.message || '');
-        const loadingId = toast.loading('loading...');
+        if(!error){
+            var loadingId = toast.loading('loading...');
+        }
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
             clientSecret,
             {
