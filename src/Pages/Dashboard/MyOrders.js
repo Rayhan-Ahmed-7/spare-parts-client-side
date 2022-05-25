@@ -1,26 +1,22 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
+import Loading from '../../Components/Shared/Loading/Loading';
 import auth from '../../firebase.init';
 
 const MyOrders = () => {
-    const [orders, setOrders] = useState([]);
+    //const [orders, setOrders] = useState([]);
     const [user] = useAuthState(auth);
-    useEffect(() => {
-        if (user) {
-            axios.get(`https://boiling-badlands-34692.herokuapp.com/orders/${user?.email}`, {
-                headers: {
-                    'content-type': 'application/json',
-                    "authorization": `bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
-                .then(res => {
-                    setOrders(res?.data);
-                })
+    const { data: orders, isLoading, refetch} = useQuery("orders", () => fetch(`https://boiling-badlands-34692.herokuapp.com/orders/${user?.email}`, {
+        headers: {
+            'content-type': 'application/json',
+            "authorization": `bearer ${localStorage.getItem('accessToken')}`
         }
-    }, [user]);
+    }).then(res=>res.json())
+    )
     const handleCancel = (id) => {
         swal({
             title: "Are you sure?",
@@ -37,15 +33,19 @@ const MyOrders = () => {
                             "authorization": `bearer ${localStorage.getItem('accessToken')}`
                         }
                     })
-                    .then(res => {
-                        if(res.data?.deletedCount > 0){
-                            swal("The order has been canceled!", {
-                                icon: "success",
-                            });
-                        }
-                    })
+                        .then(res => {
+                            if (res.data?.deletedCount > 0) {
+                                swal("The order has been canceled!", {
+                                    icon: "success",
+                                });
+                                refetch();
+                            }
+                        })
                 }
             });
+    }
+    if(isLoading){
+        return <Loading></Loading>
     }
     return (
         <div>
@@ -63,7 +63,7 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders.map((order, index) => <tr key={index}>
+                            orders?.map((order, index) => <tr key={index}>
                                 <th>{index + 1}</th>
                                 <td>{order.orderName}</td>
                                 <td>{order.name}</td>

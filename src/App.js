@@ -6,6 +6,10 @@ import Header from './Components/Header/Header';
 import NotFound from './Components/NotFound/NotFound';
 import Blogs from './Pages/Blogs/Blogs';
 import AddReview from './Pages/Dashboard/AddReview';
+import AddSpareParts from './Pages/Dashboard/AdminComponents/AddSpareParts';
+import ManageOrders from './Pages/Dashboard/AdminComponents/ManageOrders';
+import ManageSpareParts from './Pages/Dashboard/AdminComponents/ManageSpareParts';
+import ManageUsers from './Pages/Dashboard/AdminComponents/ManageUsers';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
@@ -45,6 +49,10 @@ function App() {
           <Route index path='myOrders' element={<MyOrders/>}></Route>
           <Route index path='payment/:id' element={<Payment/>}></Route>
           <Route index path='addReview' element={<AddReview/>}></Route>
+          <Route index path='manageOrders' element={<ManageOrders/>}></Route>
+          <Route index path='addSpareParts' element={<AddSpareParts/>}></Route>
+          <Route index path='manageSpareParts' element={<ManageSpareParts/>}></Route>
+          <Route index path='manageUsers' element={<ManageUsers/>}></Route>
         </Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
