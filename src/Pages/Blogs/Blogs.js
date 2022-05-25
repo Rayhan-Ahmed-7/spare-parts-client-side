@@ -2,6 +2,7 @@ import React from 'react';
 
 const Blogs = () => {
     return (
+        <div className='bg-white'>
         <div className='w-10/12 mx-auto mt-6 grid lg:grid-cols-2 grid-cols-1 gap-8 mb-8'>
             <div className='md:mt-0 mt-4'>
                 <h2 className='text-2xl font-bold text-gray-800'>How will you improve the performance of a React Application?</h2>
@@ -45,7 +46,7 @@ const Blogs = () => {
                 <p className='text-justify text-gray-800 mt-3'>
                     we can use es6 filter array method. Like bellow.
                     <br />
-                    <p>const result=products.filter(product=>products.name.includes(searchText));</p>
+                    <strong className='break-all'>{"const result=products.filter(product=>products.name.includes(searchText))"}</strong>
                 </p>
             </div>
             <div className='md:mt-0 mt-4'>
@@ -54,6 +55,7 @@ const Blogs = () => {
                 The main objective of unit testing is to isolate written code to test and determine if it works as intended. Unit testing is an important step in the development process, because if done correctly, it can help detect early flaws in code which may be more difficult to find in later testing stages.
                 </p>
             </div>
+        </div>
         </div>
     );
 };

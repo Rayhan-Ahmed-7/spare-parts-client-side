@@ -2,8 +2,8 @@ import React from 'react';
 
 const MyPortfolio = () => {
     return (
-        <div className='min-h-screen w-10/12 mx-auto flex justify-center my-6'>
-            <div>
+        <div className='min-h-screen bg-white flex justify-center my-6'>
+            <div className='w-10/12 mx-auto'>
             <h2 className='text-3xl uppercase font-bold text-center'>wllcome to my portfolio.!</h2>
             <div className='text-center'>
                 <h2 className='text-2xl'>Rayhan Ahmed</h2>
@@ -11,11 +11,11 @@ const MyPortfolio = () => {
                 <div className='my-4 p-2 shadow-xl rounded-lg'>
                     <h2 className='text-2xl'>Education</h2>
                     <p>Diploma in CSE from Chandpur polyTechnic Institute (2016 - 2020)</p>
-                    <p>ssc from shahrasti M/L high school</p>
+                    <p>ssc from shahrasti M/L high school(pass-2016)</p>
                 </div>
                 <div className='my-6'>
                     <h2 className='text-2xl my-4'>List of Technology</h2>
-                    <div className='flex gap-4'>
+                    <div className='flex flex-wrap gap-4'>
                         <div className='p-4 rounded-lg bg-white shadow-lg'>HTML</div>
                         <div className='p-4 rounded-lg bg-white shadow-lg'>CSS</div>
                         <div className='p-4 rounded-lg bg-white shadow-lg'>JS</div>
