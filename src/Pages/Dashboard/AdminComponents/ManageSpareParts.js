@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import Loading from '../../../Components/Shared/Loading/Loading';
 
 const ManageSpareParts = () => {
-    const { data: spareParts, isLoading, refetch } = useQuery("allSpareParts", () => fetch(`http://localhost:5000/car-parts`, {
+    const { data: spareParts, isLoading, refetch } = useQuery("allSpareParts", () => fetch(`https://boiling-badlands-34692.herokuapp.com/car-parts`, {
         headers: {
             'content-type': 'application/json',
             "authorization": `bearer ${localStorage.getItem('accessToken')}`

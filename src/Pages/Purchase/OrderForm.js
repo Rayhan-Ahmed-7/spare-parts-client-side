@@ -9,10 +9,10 @@ const OrderForm = ({carPart}) => {
     const {name,price,minimumOrder,availableQuantity} = carPart;
     const [user] = useAuthState(auth);
     const [error, setError] = useState('');
-    const [orderQuantity,setOrderQuantity] = useState(50);
+    const [orderQuantity,setOrderQuantity] = useState(minimumOrder);
     useEffect(()=>{
         if(orderQuantity < minimumOrder ){
-            setError('You have to order at least 50 items');
+            setError(`You have to order at least ${minimumOrder} items`);
         }
         else if(orderQuantity > availableQuantity){
             setError("You Can't order more than available items");
@@ -120,9 +120,7 @@ const OrderForm = ({carPart}) => {
                             {error}
                             </p>}
                         <div className='flex justify-center'>
-                            <button disabled={error ? true : false} className='bg-primary text-white btn-transition py-2 px-4 rounded-md cursor-pointer flex items-center' type="submit">
-                                Place Order
-                            </button>
+                            <input disabled={error ? true : false} className='bg-primary text-white py-2 px-4 rounded-md cursor-pointer flex items-center' value='Place Order' type="submit"/>
                         </div>
                     </form>
         </div>
