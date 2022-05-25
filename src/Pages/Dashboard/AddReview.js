@@ -16,7 +16,7 @@ const AddReview = () => {
             location
         }
         const loading2 = toast.loading('adding...');
-        fetch('http://localhost:5000/reviews',{
+        fetch('https://boiling-badlands-34692.herokuapp.com/reviews',{
             method:"POST",
             headers: {
                 'content-type': 'application/json',

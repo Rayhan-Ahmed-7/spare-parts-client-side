@@ -21,7 +21,7 @@ const MyProfile = () => {
         console.log(userInfo);
         const loading2 = toast.loading('adding...');
         if(user){
-            fetch(`http://localhost:5000/user/${user?.email}`,{
+            fetch(`https://boiling-badlands-34692.herokuapp.com/user/${user?.email}`,{
             method:"PUT",
             headers: {
                 'content-type': 'application/json',
@@ -42,7 +42,7 @@ const MyProfile = () => {
         e.target.reset();
     }
     //getting user 
-    const {data:dbuser,isLoading} = useQuery(`http://localhost:5000/user/${user?.email}`,()=>fetch(`http://localhost:5000/user/${user?.email}`,{
+    const {data:dbuser,isLoading} = useQuery("user",()=>fetch(`https://boiling-badlands-34692.herokuapp.com/user/${user?.email}`,{
         headers: {
             'content-type': 'application/json',
             "authorization": `bearer ${localStorage.getItem('accessToken')}`
