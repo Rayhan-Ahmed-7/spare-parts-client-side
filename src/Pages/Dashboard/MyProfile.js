@@ -18,7 +18,6 @@ const MyProfile = () => {
             phone,
             linkedIn
         }
-        console.log(userInfo);
         const loading2 = toast.loading('adding...');
         if(user){
             fetch(`https://boiling-badlands-34692.herokuapp.com/user/${user?.email}`,{
@@ -48,7 +47,6 @@ const MyProfile = () => {
             "authorization": `bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res=>res.json()))
-    console.log(dbuser);
     return (
         <div>
             <h2 className='text-2xl text-center font-bold my-3'>My Profile</h2>

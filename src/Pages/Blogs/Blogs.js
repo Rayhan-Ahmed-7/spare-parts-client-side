@@ -16,7 +16,7 @@ const Blogs = () => {
             </div>
             <div className='md:mt-0 mt-4'>
                 <h2 className='text-2xl font-bold text-gray-800'>What are the different ways to manage a state in a React application?</h2>
-                <p className='text-justify text-gray-800 mt-3 text-md'>
+                <div className='text-justify text-gray-800 mt-3 text-md'>
                     The Four Kinds of React State to Manage
                     <br /> 1. Local state
                     <br /> 2. Global state
@@ -26,7 +26,7 @@ const Blogs = () => {
                     <p>2. Global state is necessary when we want to get and update data anywhere in our app, or in multiple components at least.</p>
                     <p>3. Server state is a simple concept, but can be hard to manage alongside all of our local and global UI state.</p>
                     <p>4. URL state is often missing as a category of state, but it is an important one. In many cases, a lot of major parts of our application rely upon accessing URL state. Try to imagine building a blog without being able to fetch a post based off of its slug or id that is located in the URL!</p>
-                </p>
+                </div>
             </div>
             <div className='md:mt-0 mt-4'>
                 <h2 className='text-2xl font-bold text-gray-800'>How does prototypical inheritance work?</h2>

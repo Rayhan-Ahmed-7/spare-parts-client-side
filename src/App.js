@@ -14,6 +14,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Payment from './Pages/Dashboard/Payment';
+import RequireAdmin from './Pages/Dashboard/RequireAdmin';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import PasswordReset from './Pages/Login/PasswordReset';
@@ -49,10 +50,10 @@ function App() {
           <Route index path='myOrders' element={<MyOrders/>}></Route>
           <Route index path='payment/:id' element={<Payment/>}></Route>
           <Route index path='addReview' element={<AddReview/>}></Route>
-          <Route index path='manageOrders' element={<ManageOrders/>}></Route>
-          <Route index path='addSpareParts' element={<AddSpareParts/>}></Route>
-          <Route index path='manageSpareParts' element={<ManageSpareParts/>}></Route>
-          <Route index path='manageUsers' element={<ManageUsers/>}></Route>
+          <Route index path='manageOrders' element={<RequireAdmin><ManageOrders/></RequireAdmin>}></Route>
+          <Route index path='addSpareParts' element={<RequireAdmin><AddSpareParts/></RequireAdmin>}></Route>
+          <Route index path='manageSpareParts' element={<RequireAdmin><ManageSpareParts/></RequireAdmin>}></Route>
+          <Route index path='manageUsers' element={<RequireAdmin><ManageUsers/></RequireAdmin>}></Route>
         </Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>

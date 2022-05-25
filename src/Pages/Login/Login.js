@@ -86,7 +86,7 @@ const Login = () => {
                     <div className='w-28 h-1 rounded-sm bg-white'></div>
                 </div>
                 <div className='flex justify-center'>
-                <button onClick={()=>signInWithGoogle()} className='btn bg-red-500 border-0 hover:bg-red-600'><GrGooglePlus className='text-2xl mr-2'/> Google</button>
+                <button onClick={()=>signInWithGoogle()} className='btn bg-red-500 text-white border-0 hover:bg-red-600'><GrGooglePlus className='text-2xl mr-2'/> Google</button>
                 </div>
             </div>
         </div>

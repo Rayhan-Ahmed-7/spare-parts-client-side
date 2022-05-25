@@ -1,15 +1,48 @@
+import axios from 'axios';
 import React from 'react';
 import { useQuery } from 'react-query';
+import swal from 'sweetalert';
+import Loading from '../../../Components/Shared/Loading/Loading';
 
 const ManageUsers = () => {
-    const { data: users, isLoading, refetch } = useQuery("allUsers", () => fetch(`https://boiling-badlands-34692.herokuapp.com/car-parts`, {
+    const { data: users, isLoading, refetch } = useQuery("allUsers", () => fetch(`http://localhost:5000/users`, {
         headers: {
             'content-type': 'application/json',
             "authorization": `bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => res.json())
     )
-    const handleDelete = (id) => {
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+    const handleAdmin = (email) => {
+        swal({
+            title: "Are you sure?",
+            text: "Are your sure your want to make this user Admin!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((update) => {
+            if (update) {
+                fetch(`http://localhost:5000/admin/${email}`,{
+                    method:"PUT",
+                    headers: {
+                        'content-type': 'application/json',
+                        "authorization": `bearer ${localStorage.getItem('accessToken')}`
+                    }
+                })
+                .then(res => res.json())
+                .then(result => {
+                    if (result?.modifiedCount > 0) {
+                        swal("The user is admin now!", {
+                            icon: "success",
+                        });
+                        refetch();
+                    }
+                })
+            }
+        });
 
     }
     return (
@@ -19,23 +52,23 @@ const ManageUsers = () => {
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Name</th>
-                            <th>User</th>
-                            <th>Price</th>
-                            <th>status</th>
-                            <th>Payment</th>
+                            <th>email</th>
+                            <th>Role</th>
+                            <th>Edit Role</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             users?.map((user, index) => <tr key={index}>
                                 <th>{index + 1}</th>
-                                <td>{user.userName}</td>
-                                <td>{user.name}</td>
-                                <td>${user.price}</td>
-                                <td>{user.status}</td>
+                                <td>{user.email}</td>
                                 <td>
-                                    {user.paid ? 'paid' : 'not paid'}
+                                    {user.role === 'admin' ? <p>Admin</p> : <p>User</p>}
+                                </td>
+                                <td>
+                                    {
+                                        user.role === 'admin' ? <p>Admin</p> : <button onClick={() => handleAdmin(user.email)} className='btn btn-xs bg-primary text-white border-0 '>Make Admin</button>
+                                    }
                                 </td>
                             </tr>)
                         }
