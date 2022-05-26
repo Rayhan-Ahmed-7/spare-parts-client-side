@@ -2,6 +2,7 @@ import { async } from '@firebase/util';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import toast from 'react-hot-toast';
 import swal from 'sweetalert';
 import auth from '../../firebase.init';
 
@@ -41,12 +42,15 @@ const OrderForm = ({carPart}) => {
             status:'pending'
         }
         if(!error){
+            let loading5 = toast.loading('loading...');
             axios.post('https://boiling-badlands-34692.herokuapp.com/order',order)
             .then(res=>{
                 if(res?.data?.acknowledged){
+                    toast.dismiss(loading5);
                     swal("Good job!", "You sucessfully placed a order!", "success")
+                }else{
+                    toast.dismiss(loading5);
                 }
-                console.log(res);
             });
         }
         //console.log(order);
