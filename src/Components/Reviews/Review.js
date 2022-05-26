@@ -8,7 +8,7 @@ const Review = ({ review }) => {
         icons.push(i)
     }
     return (
-        <div className="card bg-gray-100 shadow-xl">
+        <div className="card bg-gray-100 shadow-xl h-64">
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <div className=''>

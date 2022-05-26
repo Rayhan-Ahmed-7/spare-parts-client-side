@@ -20,7 +20,7 @@ const OrderForm = ({carPart}) => {
         }else{
             setError('');
         }
-    },[orderQuantity,error])
+    },[orderQuantity,minimumOrder,availableQuantity])
     const handleOrder = async (e) => {
         e.preventDefault();
         const orderName = e.target.order.value;
@@ -58,7 +58,7 @@ const OrderForm = ({carPart}) => {
         e.target.reset();
     }
     return (
-        <div className='lg:w-[800px] w-full p-3 lg:mt-0 mt-8 shadow-xl rounded-lg'>
+        <div className='lg:w-[800px] w-full p-3 lg:mt-0 mt-8 lg:ml-4 ml-0 shadow-xl rounded-lg'>
             <form onSubmit={handleOrder}>
                         <label htmlFor="">Parts Name</label>  
                         <input 

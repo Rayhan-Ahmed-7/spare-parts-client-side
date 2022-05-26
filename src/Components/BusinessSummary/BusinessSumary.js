@@ -18,17 +18,17 @@ const BusinessSumary = () => {
                     </div>
                     <div className='flex flex-col items-center'>
                         <AiOutlineFileDone className='text-5xl text-[#33e78a]'/>
-                        <h2>200+</h2>
+                        <h2>40k+</h2>
                         <p>Completed Orders</p>
                     </div>
                     <div className='flex flex-col items-center'>
                         <FaUsers className='text-5xl text-[#33e78a]'/>
-                        <h2>180+</h2>
+                        <h2>10k+</h2>
                         <p>Happy Buyers</p>
                     </div>
                     <div className='flex flex-col items-center'>
                         <FaComments className='text-5xl text-[#33e78a]'/>
-                        <h2>120+</h2>
+                        <h2>20k+</h2>
                         <p>Buyers Review</p>
                     </div>
                 </div>

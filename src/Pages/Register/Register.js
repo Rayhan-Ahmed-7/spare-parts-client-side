@@ -83,9 +83,9 @@ const Register = () => {
                                 value:true,
                                 message:'Password is required'
                             },
-                            minLength: {
-                                value:6,
-                                message:"Password Must be 6 characters or longer"
+                            pattern: {
+                                value:/(?=.*[!@#$%^&*]).{6,}/,
+                                message:"one special character and min length 6"
                             }
                         })}
                             className="w-full rounded-md bg-slate-200 text-slate-700 focus:outline-none mb-4 p-3"

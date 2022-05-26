@@ -9,7 +9,7 @@ import auth from '../../firebase.init';
 
 const MyOrders = () => {
     //const [orders, setOrders] = useState([]);
-    const [user] = useAuthState(auth);
+    const [user,loading] = useAuthState(auth);
     const { data: orders, isLoading, refetch} = useQuery("orders", () => fetch(`https://boiling-badlands-34692.herokuapp.com/orders/${user?.email}`, {
         headers: {
             'content-type': 'application/json',
@@ -44,7 +44,7 @@ const MyOrders = () => {
                 }
             });
     }
-    if(isLoading){
+    if(loading || isLoading){
         return <Loading></Loading>
     }
     return (

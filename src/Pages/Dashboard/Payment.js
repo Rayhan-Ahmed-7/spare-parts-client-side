@@ -23,7 +23,9 @@ const Payment = () => {
             <div className='card max-w-md shadow-xl mb-6 rounded-xl p-4 bg-white'>
                 <div className="card-body">
                     <p className='text-green-400'>Hello, {order?.name}</p>
-                    <h2 className='text-xl'>Please pay for {order?.orderName}</h2>
+                    <p className=''>Your email address: {order?.email}</p>
+                    <p className=''>Your shipping address: <span className='text-green-400'>"{order?.address} "</span></p>
+                    <h2 className='text-xl'>Please pay for <span className='text-green-400'>"{order?.orderName} "</span></h2>
                     <p>price:$ {order?.price}</p>
                 </div>
             </div>
