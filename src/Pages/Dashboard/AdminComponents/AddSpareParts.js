@@ -11,6 +11,11 @@ const AddSpareParts = () => {
         let price = parseInt(data.price);
         let availableQuantity = parseInt(data.availableQuantity);
         let minimumOrder = parseInt(data.minimumQuantity);
+        if(price < 1){
+            setError("price must be a positive value");
+            toast.error("price must be a positive value");
+            return;
+        }
         if (minimumOrder > availableQuantity){
             setError("Minimum order can't be biger than availableQuantity");
             toast.error("Minimum order can't be biger than availableQuantity");
