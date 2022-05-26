@@ -21,7 +21,7 @@ const ManageSpareParts = () => {
         })
         .then((update) => {
             if (update) {
-                fetch(`http://localhost:5000/car-parts/${id}`,{
+                fetch(`https://boiling-badlands-34692.herokuapp.com/car-parts/${id}`,{
                     method:"DELETE",
                     headers: {
                         'content-type': 'application/json',

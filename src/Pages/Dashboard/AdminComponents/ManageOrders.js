@@ -15,7 +15,7 @@ const ManageOrders = () => {
     const handleStatusUpdate = (e,id) =>{
         if(e.target.value === "shipped"){
             const loading4 = toast.loading('updating status..');
-            fetch(`http://localhost:5000/order/${id}`,{
+            fetch(`https://boiling-badlands-34692.herokuapp.com/order/${id}`,{
                 method:"PUT",
                 headers: {
                     'content-type': 'application/json',
