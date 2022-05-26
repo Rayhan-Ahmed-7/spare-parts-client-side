@@ -34,10 +34,10 @@ const Purchase = () => {
     }
     return (
         <div className='min-h-screen'>
-            <div className='lg:w-10/12 w-11/12 mx-auto flex lg:flex-row flex-col items-center my-10'>
+            <div className=' w-11/12 mx-auto flex lg:flex-row flex-col items-center my-10'>
                 <div className='flex lg:flex-row flex-col items-center '>
-                    <img className='w-full' src={img} alt="img" />
-                    <div>
+                    <img className='max-w-[400px] mr-4' src={img} alt="img" />
+                    <div className='flex-1'>
                         <h2 className='text-3xl uppercase font-bold'>{name}</h2>
                         <p>product Id:{_id}</p>
                         <p className='py-3'>price: ${price}</p>

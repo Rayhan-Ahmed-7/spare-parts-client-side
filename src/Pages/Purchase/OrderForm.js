@@ -58,7 +58,7 @@ const OrderForm = ({carPart}) => {
         e.target.reset();
     }
     return (
-        <div className='lg:w-[800px] w-full p-3 lg:mt-0 mt-8 lg:ml-4 ml-0 shadow-xl rounded-lg'>
+        <div className='lg:w-[600px] w-full p-3 bg-white lg:mt-0 mt-8 lg:ml-4 ml-0 shadow-xl rounded-lg'>
             <form onSubmit={handleOrder}>
                         <label htmlFor="">Parts Name</label>  
                         <input 
