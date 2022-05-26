@@ -28,9 +28,9 @@ const MyPortfolio = () => {
                 </div>
                 <div className='my-6 p-4 bg-white rounded-lg shadow-xl'>
                     <h2>Links Of my three project</h2>
-                    <a className='text-teal-400' href="https://tech-scope-6e3f6.web.app/">https://tech-scope-6e3f6.web.app/</a> <br />
-                    <a className='text-teal-400' href="https://wild-life-photographer.web.app/">https://wild-life-photographer.web.app/</a> <br />
-                    <a className='text-teal-400' href="https://airpods-review-rayhan-ahmed-7.netlify.app/">https://airpods-review-rayhan-ahmed-7.netlify.app/</a>
+                    <a className='text-teal-400' href="https://tech-scope-6e3f6.web.app/" target='_blank' rel='noreferrer'>https://tech-scope-6e3f6.web.app/</a> <br />
+                    <a className='text-teal-400' href="https://wild-life-photographer.web.app/" target='_blank' rel='noreferrer'>https://wild-life-photographer.web.app/</a> <br />
+                    <a className='text-teal-400' href="https://airpods-review-rayhan-ahmed-7.netlify.app/" target='_blank' rel='noreferrer'>https://airpods-review-rayhan-ahmed-7.netlify.app/</a>
                 </div>
             </div>
             </div>
