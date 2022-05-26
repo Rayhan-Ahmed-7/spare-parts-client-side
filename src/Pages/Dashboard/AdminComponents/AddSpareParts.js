@@ -90,7 +90,7 @@ const AddSpareParts = () => {
                             }
                         })}
                             className="w-full rounded-md bg-slate-200 text-slate-700 focus:outline-none mb-3 p-3"
-                            type="text"
+                            type="number"
                         />
                         <p className='text-red-500 -mt-3 text-xs'>{errors.price?.message}</p>
                         <label htmlFor="">Available Quantity</label>
