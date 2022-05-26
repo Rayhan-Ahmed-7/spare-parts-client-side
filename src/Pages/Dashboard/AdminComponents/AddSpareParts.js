@@ -25,7 +25,7 @@ const AddSpareParts = () => {
                     name: data.name,
                     price: data.price,
                     availableQuantity: data.availableQuantity,
-                    minimumQuantity: data.minimumQuantity,
+                    minimumOrder: data.minimumQuantity,
                     img: img,
                     description: data.description
                 }
@@ -45,6 +45,14 @@ const AddSpareParts = () => {
                             reset();
                         }
                     })
+                    .catch(err=>{
+                        toast.dismiss(loading3);
+                        toast.error(err.message);
+                    })
+            })
+            .catch(err=>{
+                toast.dismiss(loading3);
+                toast.error(err.message);
             })
     }
     return (

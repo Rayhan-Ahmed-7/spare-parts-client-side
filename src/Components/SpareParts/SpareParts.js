@@ -17,6 +17,8 @@ const SpareParts = () => {
     if(isLoading){
         return <Loading></Loading>
     }
+    const carParts = carSpareParts.reverse();
+    console.log("car",carParts);
     return (
         <div className='bg-secondary text-white'>
             <div id='car-parts' className='w-10/12 mx-auto py-10'>
@@ -27,7 +29,7 @@ const SpareParts = () => {
                     </h2>
                 </div>
                 <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 my-10 gap-10 place-content-center'>
-                    {carSpareParts?.slice(0,6)?.map(sparePart=><SparePart key={sparePart._id} sparePart={sparePart}></SparePart>)}
+                    {carParts?.map(sparePart=><SparePart key={sparePart._id} sparePart={sparePart}></SparePart>)}
                 </div>
             </div>
         </div>
