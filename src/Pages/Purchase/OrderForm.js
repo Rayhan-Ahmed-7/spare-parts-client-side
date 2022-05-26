@@ -42,14 +42,15 @@ const OrderForm = ({carPart}) => {
             status:'pending'
         }
         if(!error){
-            let loading5 = toast.loading('loading...');
+            let loading5 = toast.loading('placing order...');
             axios.post('https://boiling-badlands-34692.herokuapp.com/order',order)
             .then(res=>{
                 if(res?.data?.acknowledged){
                     toast.dismiss(loading5);
-                    swal("Good job!", "You sucessfully placed a order!", "success")
+                    swal("congratulations!", "You have sucessfully placed an order!", "success")
                 }else{
                     toast.dismiss(loading5);
+                    toast.error('order placing failed');
                 }
             });
         }
@@ -123,8 +124,10 @@ const OrderForm = ({carPart}) => {
                         {error && <p className='text-primary text-[13px] text-center mb-2'>
                             {error}
                             </p>}
-                        <div className='flex justify-center'>
-                            <input disabled={error ? true : false} className='bg-primary text-white py-2 px-4 rounded-md cursor-pointer flex items-center' value='Place Order' type="submit"/>
+                        <div className='flex justify-center mt-2'>
+                            <button disabled={error ? true : false} className='btn bg-primary text-white py-2 px-4 rounded-md cursor-pointer border-0 flex items-center'  type="submit">
+                                place Order
+                            </button>
                         </div>
                     </form>
         </div>
