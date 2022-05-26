@@ -8,6 +8,15 @@ const AddSpareParts = () => {
     const imgdbApiKey = process.env.REACT_APP_IMGDB_API_KEY;
     const [error, setError] = useState('');
     const handleAddOrder = (data) => {
+        let price = parseInt(data.price);
+        let availableQuantity = parseInt(data.availableQuantity);
+        let minimumOrder = parseInt(data.minimumQuantity);
+        if (minimumOrder > availableQuantity){
+            setError("Minimum order can't be biger than availableQuantity");
+            toast.error("Minimum order can't be biger than availableQuantity");
+            return;
+        }
+        setError('');
         const image = data.image[0];
         const formData = new FormData();
         formData.append('image', image);
@@ -23,9 +32,9 @@ const AddSpareParts = () => {
                 const img = result?.data?.url;
                 const product = {
                     name: data.name,
-                    price: data.price,
-                    availableQuantity: data.availableQuantity,
-                    minimumOrder: data.minimumQuantity,
+                    price: price,
+                    availableQuantity: availableQuantity,
+                    minimumOrder: minimumOrder,
                     img: img,
                     description: data.description
                 }
@@ -39,18 +48,18 @@ const AddSpareParts = () => {
                     body: JSON.stringify(product)
                 }).then(res => res.json())
                     .then(result => {
-                        if(result.insertedId){
+                        if (result.insertedId) {
                             toast.dismiss(loading3);
-                            swal('congrats.!',"product added successfully","success");
+                            swal('congrats.!', "product added successfully", "success");
                             reset();
                         }
                     })
-                    .catch(err=>{
+                    .catch(err => {
                         toast.dismiss(loading3);
                         toast.error(err.message);
                     })
             })
-            .catch(err=>{
+            .catch(err => {
                 toast.dismiss(loading3);
                 toast.error(err.message);
             })

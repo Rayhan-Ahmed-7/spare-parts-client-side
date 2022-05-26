@@ -17,6 +17,7 @@ const SpareParts = () => {
     if(isLoading){
         return <Loading></Loading>
     }
+    console.log(carSpareParts);
     return (
         <div className='bg-secondary text-white'>
             <div id='car-parts' className='w-10/12 mx-auto py-10'>
