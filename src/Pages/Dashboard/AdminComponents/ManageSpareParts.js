@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import swal from 'sweetalert';
 import Loading from '../../../Components/Shared/Loading/Loading';
 
 const ManageSpareParts = () => {
@@ -11,13 +12,39 @@ const ManageSpareParts = () => {
     }).then(res => res.json())
     )
     const handleDelete = (id) => {
-
+        swal({
+            title: "Are you sure?",
+            text: "Are your sure your want to delete this item.?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((update) => {
+            if (update) {
+                fetch(`http://localhost:5000/car-parts/${id}`,{
+                    method:"DELETE",
+                    headers: {
+                        'content-type': 'application/json',
+                        "authorization": `bearer ${localStorage.getItem('accessToken')}`
+                    }
+                })
+                .then(res => res.json())
+                .then(result => {
+                    if (result?.deletedCount > 0) {
+                        swal("spare parts is successfully deleted!", {
+                            icon: "success",
+                        });
+                        refetch();
+                    }
+                })
+            }
+        });
     }
     if (isLoading) {
         return <Loading></Loading>
     }
     return (
-        <div>
+        <div className='my-8'>
             <div className="overflow-x-auto p-2">
                 <table className="table w-full">
                     <thead>

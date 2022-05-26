@@ -6,6 +6,13 @@ import auth from '../../firebase.init';
 
 const MyProfile = () => {
     const [user] = useAuthState(auth);
+    //getting user 
+    const {data:dbuser,isLoading , refetch} = useQuery("user",()=>fetch(`https://boiling-badlands-34692.herokuapp.com/user/${user?.email}`,{
+        headers: {
+            'content-type': 'application/json',
+            "authorization": `bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res=>res.json()))
     const handleReview = (e)=>{
         e.preventDefault();
         const education = e.target.education.value;
@@ -18,6 +25,7 @@ const MyProfile = () => {
             phone,
             linkedIn
         }
+        
         const loading2 = toast.loading('adding...');
         if(user){
             fetch(`https://boiling-badlands-34692.herokuapp.com/user/${user?.email}`,{
@@ -32,6 +40,7 @@ const MyProfile = () => {
             //console.log(res);
             toast.dismiss(loading2);
             toast.success('added');
+            refetch();
         })
         .catch(err=>{
             toast.dismiss(loading2);
@@ -40,13 +49,6 @@ const MyProfile = () => {
         }
         e.target.reset();
     }
-    //getting user 
-    const {data:dbuser,isLoading} = useQuery("user",()=>fetch(`https://boiling-badlands-34692.herokuapp.com/user/${user?.email}`,{
-        headers: {
-            'content-type': 'application/json',
-            "authorization": `bearer ${localStorage.getItem('accessToken')}`
-        }
-    }).then(res=>res.json()))
     return (
         <div>
             <h2 className='text-2xl text-center font-bold my-3'>My Profile</h2>
@@ -56,8 +58,8 @@ const MyProfile = () => {
                 {dbuser && <>
                 <p>education: {dbuser.education}</p>
                 <p>location: {dbuser.location}</p>
-                <p>number: {dbuser.number}</p>
-                <p>LinkedIn profile: <a className='text-teal-400' href={dbuser.linkedIn} target="_blank">link</a></p>
+                <p>number: {dbuser.phone}</p>
+                <p>LinkedIn profile: <a className='text-teal-400' href={dbuser.linkedIn} target="_blank" rel='noreferrer'>{dbuser.linkedIn}</a></p>
                 </>}
             </div>
             <div className='bg-slate-800 p-4 mt-4 rounded-lg shadow-xl'>
