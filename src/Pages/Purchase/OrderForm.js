@@ -16,7 +16,7 @@ const OrderForm = ({carPart}) => {
             setError(`You have to order at least ${minimumOrder} items`);
         }
         else if(orderQuantity > availableQuantity){
-            setError("You Can't order more than available items");
+            setError(`You Can't order more than available(${availableQuantity}) items`);
         }else{
             setError('');
         }
