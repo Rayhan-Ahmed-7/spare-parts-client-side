@@ -7,14 +7,14 @@ const Footer = () => {
                 <footer className="footer p-10 text-neutral-content">
                     <div>
                         <img src={logo} alt="" />
-                        <p>ACME Industries Ltd.</p>
+                        <p>Spare Parts Ltd.</p>
                     </div>
                     <div>
                         <span className="footer-title">Services</span>
-                        <a className="link link-hover">Branding</a>
-                        <a className="link link-hover">Design</a>
-                        <a className="link link-hover">Marketing</a>
-                        <a className="link link-hover">Advertisement</a>
+                        <a className="link link-hover">car parts</a>
+                        <a className="link link-hover">engine</a>
+                        <a className="link link-hover">car tire</a>
+                        <a className="link link-hover">brake kit</a>
                     </div>
                     <div>
                         <span className="footer-title">Company</span>

@@ -35,10 +35,10 @@ const ManageUsers = () => {
                 .then(res => res.json())
                 .then(result => {
                     if (result?.modifiedCount > 0) {
+                        refetch();
                         swal("The user is admin now!", {
                             icon: "success",
                         });
-                        refetch();
                     }
                 })
             }

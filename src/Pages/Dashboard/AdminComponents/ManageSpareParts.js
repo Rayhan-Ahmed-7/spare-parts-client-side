@@ -31,10 +31,10 @@ const ManageSpareParts = () => {
                 .then(res => res.json())
                 .then(result => {
                     if (result?.deletedCount > 0) {
+                        refetch();
                         swal("spare parts is successfully deleted!", {
                             icon: "success",
                         });
-                        refetch();
                     }
                 })
             }

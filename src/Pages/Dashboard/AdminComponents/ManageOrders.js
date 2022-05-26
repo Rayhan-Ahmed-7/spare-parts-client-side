@@ -25,9 +25,8 @@ const ManageOrders = () => {
             .then(res=>res.json())
             .then(result=>{
                 toast.dismiss(loading4);
-                toast.success('updated');
                 refetch();
-                console.log(result);
+                toast.success('updated');
             })
             .catch(err=>{
                 toast.dismiss(loading4);
